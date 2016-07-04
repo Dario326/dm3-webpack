@@ -1,9 +1,15 @@
-import angular from "angular";
-import uiRouter from "angular-ui-router";
+angular.module( `webpack`, [ `ui.router` ] )
+	.config( function( $stateProvider, $urlRouterProvider) {
+		$urlRouterProvider.otherwise( `/` );
 
-import router from "./router";
-import rootCtrl from "./rootCtrl";
-
-angular.module( `webpack`, [ uiRouter ] )
-	.config( router )
-	.controller( "rootCtrl", rootCtrl )
+		$stateProvider
+			.state( `routeOne`, {
+				url: `/`
+				, templateUrl: "./route-one/route-one.html"
+				, controller: `routeOneCtrl`
+			} ).state( `routeTwo`, {
+			url: `/a-route`
+			, templateUrl: "./route-two/route-two.html"
+			, controller: `routeTwoCtrl`
+		} );
+	} );

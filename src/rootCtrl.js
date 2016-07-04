@@ -1,5 +1,4 @@
-export default function rootCtrl( $scope ) {
+angular.module( `webpack` )
+.controller( `rootCtrl`, function( $scope ) {
 
-}
-
-rootCtrl.$inject = [ `$scope` ];
+} );
